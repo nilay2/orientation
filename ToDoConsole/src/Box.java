@@ -1,8 +1,11 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Box {
 
 	private String name = null;
 	private String definition = null;
-	private String date = null;
+	public String date ;
 
 	public Box() {
 	
@@ -24,7 +27,8 @@ public class Box {
 		return definition;
 	}
 	
-	public void setDate(String date){
+	public String setDate(String date){
+		return
 		this.date = date;
 	}
 	public String getDate() {
@@ -34,6 +38,16 @@ public class Box {
 	public String toString() {
 		return   getName() + "\t , \t" + getDefinition()
 				+ "\t , \t" + getDate();
-	}
+    }
+	
+    public String getFormattedDate(Date date) {
+	        SimpleDateFormat df = new SimpleDateFormat("yyyy MM dd HH mm ss");
+	        return df.format(date);
+	        
+	    }
 
+	
+		
+	
+   
 }
