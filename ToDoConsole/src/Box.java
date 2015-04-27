@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Box {
+public class Box{
 
 	private String name = null;
 	private String definition = null;

@@ -10,6 +10,8 @@ import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -65,13 +67,23 @@ public class BoxMain {
 	}
 
 	private static void show(List<Box> list) {
-		bubble_srt();
+		// bubble_srt();
+		collectionSort();
 		write2Console("-----------------------------------------------------");
 		write2Console("Name\t\tDefinition\t\tDate");
 		for (Box box : list) {
 			System.out.println(box.getInfo());
 		}
 		write2Console("-----------------------------------------------------");
+	}
+
+	private static void collectionSort() {
+		Collections.sort(totalBoxes, new Comparator<Box>() {
+			@Override
+			public int compare(Box o1, Box o2) {
+				return o1.getDate().compareTo(o2.getDate());
+			}
+		});
 	}
 
 	private static ArrayList<Box> createBoxes(Scanner userInput) {
@@ -126,24 +138,25 @@ public class BoxMain {
 		return userInput.nextInt();
 	}
 
-	// logic to sort the elements
-	public static void bubble_srt() {
-		int n = totalBoxes.size();
-		int k;
-		for (int m = n; m >= 0; m--) {
-			for (int i = 0; i < n - 1; i++) {
-				k = i + 1;
-				if (totalBoxes.get(i).getDate()
-						.after(totalBoxes.get(k).getDate())) {
-					swapBoxes(i, k);
-				}
-			}
-		}
-	}
-	private static void swapBoxes(int i, int j) {
-		Box first = totalBoxes.get(i);
-		Box second = totalBoxes.get(j);
-		totalBoxes.set(i, second);
-		totalBoxes.set(j, first);
-	}
+//	// logic to sort the elements
+//	public static void bubble_srt() {
+//		int n = totalBoxes.size();
+//		int k;
+//		for (int m = n; m >= 0; m--) {
+//			for (int i = 0; i < n - 1; i++) {
+//				k = i + 1;
+//				if (totalBoxes.get(i).getDate()
+//						.after(totalBoxes.get(k).getDate())) {
+//					swapBoxes(i, k);
+//				}
+//			}
+//		}
+//	}
+//
+//	private static void swapBoxes(int i, int j) {
+//		Box first = totalBoxes.get(i);
+//		Box second = totalBoxes.get(j);
+//		totalBoxes.set(i, second);
+//		totalBoxes.set(j, first);
+//	}
 }
