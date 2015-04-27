@@ -5,49 +5,44 @@ public class Box {
 
 	private String name = null;
 	private String definition = null;
-	public String date ;
+	private Date date;
+	static final String DATE_FORMAT = "dd-MM-yyyy";
 
-	public Box() {
-	
-	}
-	
-	public void setName(String name){
-		this.name=name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getName() {
 		return name;
 	}
-	
-	public void setDefinition(String definition){
+
+	public void setDefinition(String definition) {
 		this.definition = definition;
 	}
 
 	public String getDefinition() {
 		return definition;
 	}
-	
-	public String setDate(String date){
-		return
+
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getDate() {
+
+	public Date getDate() {
 		return date;
 	}
 
 	public String toString() {
-		return   getName() + "\t , \t" + getDefinition()
-				+ "\t , \t" + getDate();
-    }
-	
-    public String getFormattedDate(Date date) {
-	        SimpleDateFormat df = new SimpleDateFormat("yyyy MM dd HH mm ss");
-	        return df.format(date);
-	        
-	    }
+		return "Name : " + getName() + "\t\t" + "Definiton : "
+				+ getDefinition() + "\t\t" + "Date : " + getFormattedDate();
+	}
 
-	
-		
-	
-   
+	public String getFormattedDate() {
+		return new SimpleDateFormat(DATE_FORMAT).format(date);
+	}
+
+	public String getInfo() {
+		return getName() + "\t\t" + getDefinition() + "\t\t\t"
+				+ getFormattedDate();
+	}
 }
