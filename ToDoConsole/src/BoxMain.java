@@ -22,6 +22,8 @@ import java.util.Spliterator;
 import java.util.Spliterators;
 
 public class BoxMain {
+	
+
 
 	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
@@ -31,18 +33,17 @@ public class BoxMain {
 		
 		
 		
-		int itemNum;
+		int itemNum=0;
 		int indexNum = 0;
 
 		ArrayList<Box> boxList = new ArrayList<Box>();
-		//SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+
+
 		
-		
-		
-		System.out.println("How many elements do you want to add? ");
+		System.out.println("How many elements do you want to add?");
 		itemNum = userInput.nextInt();
 
-		System.out.println("");
+		
 
 		for (int i = 0; i < itemNum; i++) {
 			Box listObject = new Box();
@@ -54,8 +55,6 @@ public class BoxMain {
 			listObject.setDefinition(userInput.next());
 
 			
-//		  listObject.setDate(userInput.next());
-		    
 			String ind = null;
 		  Date d = null; 
 		boolean dateSet = false;
@@ -82,70 +81,24 @@ public class BoxMain {
 
 		   listObject.setDate(s3);
 		   System.out.println("The entered date is: " + s3);
-
-		
-		
 		   
-
-
-		    /*SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
-			String dateInString= 
-		 
-			try {
-		 
-				Date date = sdf.parse(dateInString);
-				System.out.println(date);
-				System.out.println(sdf.format(date));
-		 
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}*/
-		    
-		    
-		    /* String[] phraseArray = phrase.split("/");
-		    
-		    
-		     
-		     System.out.println(phrase);
-	    	   
-	    	   System.out.println("Name--------Definition---------Date-----");
-	    	   
-	    	   for (int in = 0; in < phraseArray.length; in++) {
-				String stringx = phraseArray[in];
-				System.out.println(boxList.get(Integer.parseInt(stringx)-1));
-				
-			*/
-			
-			
-			/*// ...
-			String[] formatStrings = {"M/y", "M/d/y", "M-d-y"};
-			// ...
-
-			Date tryParse(String userInput)
-			{
-			    for (String formatString : formatStrings)
-			    {
-			        try
-			        {
-			            return new SimpleDateFormat(formatString).parse(dateString);
-			        }
-			        catch (ParseException e) {}
-			    }
-
-			    return null;
-			}
-			*/
+		   
+		   
+		   
+		   
 			boxList.add(listObject);
-}
+	}
 		System.out.println("----------------------------------------");
 	    System.out.println("Name--------Definition---------Date-----");
-	
+
 
 	for (Box box : boxList) {
 		
 		System.out.println(box);
 		System.out.println("----------------------------------------");
 	}
+	
+		
 	while(true){	
 		System.out.println("Command Options: ");
 		System.out.println("1: Add New Table");
