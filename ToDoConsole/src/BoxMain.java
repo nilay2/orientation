@@ -6,6 +6,8 @@
  * 
  */
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,18 +22,19 @@ public class BoxMain {
 
 	private static List<Box> totalBoxes;
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, IOException{
 		Scanner userInput = new Scanner(System.in);
 		totalBoxes = new ArrayList<Box>();
 		menu(userInput);
 	}
 
-	private static void menu(Scanner userInput) {
+	private static void menu(Scanner userInput) throws IOException {
 		write2Console("Menu options: ");
 		write2Console("1: Add new box");
 		write2Console("2: Show all boxes");
 		write2Console("3: Show choosen boxes");
-		write2Console("4: Exit");
+		write2Console("4: Write to file");
+		write2Console("5: Exit");
 		int option = getIntegerInput(userInput, "enter option : ");
 
 		switch (option) {
@@ -47,8 +50,33 @@ public class BoxMain {
 			show(prepareTempList(userInput));
 			break;
 		case 4:
+			
+			write2File(totalBoxes);
+			
+			/*//writeFile();
+		
+			File file= new File("deneme.txt");
+		file.createNewFile();
+			FileWriter fw= new FileWriter(file);
+			
+			
+			FileReader fr = new FileReader(file); 
+		     
+	       
+			try {
+			    FileOutputStream fos = new FileOutputStream("output.txt");
+			    ObjectOutputStream oos = new ObjectOutputStream(fos);   
+			    oos.writeObject(totalBoxes);
+			    oos.close(); 
+			} catch(Exception ex) {
+			    ex.printStackTrace();
+			}*/
+			break;
+			
+		case 5: 
 			userInput.close();
 			System.exit(0);
+			
 		default:
 			write2Console("You are out of range, check your menu option!");
 			break;
@@ -137,6 +165,85 @@ public class BoxMain {
 		System.out.println(question);
 		return userInput.nextInt();
 	}
+	
+/*	
+	private static void write  () throws IOException{
+		  BufferedWriter outputWriter = null;
+		  outputWriter = new BufferedWriter(new FileWriter("todoFile.txt"));
+		  for (int i = 0; i < boxList.length; i++) {
+		   
+		    outputWriter.write(boxList +"");
+		
+		    outputWriter.write(Integer.toString(ArrayList<Box>));
+		    outputWriter.newLine();
+		  }
+		  outputWriter.flush();  
+		  outputWriter.close();  
+		}*/
+	private static void write2File(List<Box> list) throws IOException{
+		
+		    FileWriter fw = new FileWriter("file.txt");
+		    for (Box box : list) {
+				System.out.println(box.getClass());
+			}
+
+		      fw.write(list + "\n");
+		      fw.close();
+		
+	}
+//	
+//	public static void writeFile() {
+//	    FileWriter writer = null;
+//	    try {
+//	        writer = new FileWriter("deneme.txt");
+//	        for (Box box : totalBoxes) {
+//	            System.out.println("");
+//	            writer.write(box.getName());
+//	            
+//	        }
+//	        writer.close();
+//	    } catch (IOException ex) {
+//	        Logger.getLogger(Box.class.getName()).log(Level.SEVERE, null, ex);
+//	    } finally {
+//	        try {
+//	            writer.close();
+//	        } catch (IOException ex) {
+//	            Logger.getLogger(Box.class.getName()).log(Level.SEVERE, null, ex);
+//	        }
+//	    }
+//	}
+//	public static void writeFile() throws IOException{
+//		
+//		String str= "text to file";
+//		File file = new File("todoFile.txt");
+//		
+//		if (!file.exists()) {
+//			
+//			file.createNewFile();
+//			
+//		}
+//		FileWriter fWriter= new FileWriter(file, false);
+//		BufferedWriter bWriter = new BufferedWriter(fWriter);
+//		
+//		bWriter.write(str);
+//		bWriter.close();
+//		
+//		
+//	}
+	
+//	public static void write (String filename,) throws IOException{
+//		  BufferedWriter outputWriter = null;
+//		  outputWriter = new BufferedWriter(new FileWriter(filename));
+//		  for (int i = 0; i < x.length; i++) {
+//		    // Maybe:
+//		    outputWriter.write(x[i]+"");
+//		    // Or:
+//		    outputWriter.write(Integer.toString(x[i]));
+//		    outputWriter.newLine();
+//		  }
+//		  outputWriter.flush();  
+//		  outputWriter.close();  
+//		}
 
 //	// logic to sort the elements
 //	public static void bubble_srt() {
