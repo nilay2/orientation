@@ -53,24 +53,6 @@ public class BoxMain {
 			
 			write2File(totalBoxes);
 			
-			/*//writeFile();
-		
-			File file= new File("deneme.txt");
-		file.createNewFile();
-			FileWriter fw= new FileWriter(file);
-			
-			
-			FileReader fr = new FileReader(file); 
-		     
-	       
-			try {
-			    FileOutputStream fos = new FileOutputStream("output.txt");
-			    ObjectOutputStream oos = new ObjectOutputStream(fos);   
-			    oos.writeObject(totalBoxes);
-			    oos.close(); 
-			} catch(Exception ex) {
-			    ex.printStackTrace();
-			}*/
 			break;
 			
 		case 5: 
@@ -166,20 +148,6 @@ public class BoxMain {
 		return userInput.nextInt();
 	}
 	
-/*	
-	private static void write  () throws IOException{
-		  BufferedWriter outputWriter = null;
-		  outputWriter = new BufferedWriter(new FileWriter("todoFile.txt"));
-		  for (int i = 0; i < boxList.length; i++) {
-		   
-		    outputWriter.write(boxList +"");
-		
-		    outputWriter.write(Integer.toString(ArrayList<Box>));
-		    outputWriter.newLine();
-		  }
-		  outputWriter.flush();  
-		  outputWriter.close();  
-		}*/
 	private static void write2File(List<Box> list) throws IOException{
 		
 		    FileWriter fw = new FileWriter("file.txt");
@@ -191,79 +159,5 @@ public class BoxMain {
 		      fw.close();
 		
 	}
-//	
-//	public static void writeFile() {
-//	    FileWriter writer = null;
-//	    try {
-//	        writer = new FileWriter("deneme.txt");
-//	        for (Box box : totalBoxes) {
-//	            System.out.println("");
-//	            writer.write(box.getName());
-//	            
-//	        }
-//	        writer.close();
-//	    } catch (IOException ex) {
-//	        Logger.getLogger(Box.class.getName()).log(Level.SEVERE, null, ex);
-//	    } finally {
-//	        try {
-//	            writer.close();
-//	        } catch (IOException ex) {
-//	            Logger.getLogger(Box.class.getName()).log(Level.SEVERE, null, ex);
-//	        }
-//	    }
-//	}
-//	public static void writeFile() throws IOException{
-//		
-//		String str= "text to file";
-//		File file = new File("todoFile.txt");
-//		
-//		if (!file.exists()) {
-//			
-//			file.createNewFile();
-//			
-//		}
-//		FileWriter fWriter= new FileWriter(file, false);
-//		BufferedWriter bWriter = new BufferedWriter(fWriter);
-//		
-//		bWriter.write(str);
-//		bWriter.close();
-//		
-//		
-//	}
-	
-//	public static void write (String filename,) throws IOException{
-//		  BufferedWriter outputWriter = null;
-//		  outputWriter = new BufferedWriter(new FileWriter(filename));
-//		  for (int i = 0; i < x.length; i++) {
-//		    // Maybe:
-//		    outputWriter.write(x[i]+"");
-//		    // Or:
-//		    outputWriter.write(Integer.toString(x[i]));
-//		    outputWriter.newLine();
-//		  }
-//		  outputWriter.flush();  
-//		  outputWriter.close();  
-//		}
 
-//	// logic to sort the elements
-//	public static void bubble_srt() {
-//		int n = totalBoxes.size();
-//		int k;
-//		for (int m = n; m >= 0; m--) {
-//			for (int i = 0; i < n - 1; i++) {
-//				k = i + 1;
-//				if (totalBoxes.get(i).getDate()
-//						.after(totalBoxes.get(k).getDate())) {
-//					swapBoxes(i, k);
-//				}
-//			}
-//		}
-//	}
-//
-//	private static void swapBoxes(int i, int j) {
-//		Box first = totalBoxes.get(i);
-//		Box second = totalBoxes.get(j);
-//		totalBoxes.set(i, second);
-//		totalBoxes.set(j, first);
-//	}
 }
